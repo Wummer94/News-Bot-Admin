@@ -7,8 +7,16 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+  topics = [];
+  name: string;
+  talks = [];
+
   constructor(public navCtrl: NavController) {
 
+  }
+
+  addTags(){
+    this.talks.push({name: this.name, topics: this.topics});
   }
 
 }
