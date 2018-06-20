@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -11,12 +12,39 @@ export class HomePage {
   name: string;
   talks = [];
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController) {
 
   }
 
   addTags(){
     this.talks.push({name: this.name, topics: this.topics});
+  }
+
+  cancelNewNews(){
+    let alert = this.alertCtrl.create({
+      title: 'Confirm purchase',
+      message: 'Do you want to delet your News?',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            console.log('Yes clicked');
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  addNewNews(){
+    
   }
 
 }
