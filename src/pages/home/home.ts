@@ -11,6 +11,8 @@ export class HomePage {
   topics = [];
   name: string;
   talks = [];
+  dateOfNews = Date;
+  anArray:any=[];
 
   constructor(public navCtrl: NavController, private alertCtrl: AlertController) {
 
@@ -44,7 +46,12 @@ export class HomePage {
   }
 
   addNewNews(){
-    
+    console.log('this.anArray',this.anArray);
+    this.data=true;
   }
+
+  addNewNewsParts(){
+    this.anArray.push({'value':''});  
+    }
 
 }

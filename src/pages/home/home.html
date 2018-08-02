@@ -20,7 +20,7 @@
   
   <div>
       <ion-item>
-          <ion-label stacked>Release Date</ion-label>
+          <ion-label stacked>Release Date </ion-label>
           <ion-datetime displayFormat="MMM DD, YYYY" pickerFormat="MM DD YYYY" [(ngModel)]="dateOfNews" ></ion-datetime>
       </ion-item>
 
@@ -46,25 +46,29 @@
       </ion-item>
     </ion-list>
 
-    <div>
-    </div>
+    <ion-item *ngFor="let att of anArray; let idx = index">
+        <ion-label color="primary">{{att.label}}{{idx+1}}</ion-label>
+        <ion-input type="text"  text-right  [(ngModel)]="anArray[idx].value"></ion-input>
+    </ion-item>
+    <button ion-button (click)="addNewNewsParts()">Add More</button>
+   
+   <ion-card *ngIf="data">
+    <ion-item *ngFor="let att of anArray;">
+      <div class="card-title">{{att.value}}</div>
+    </ion-item>
+   </ion-card>
 
     <div>
     <ion-row>
       <ion-col col-6>
-        <button ion-button full (click)="cancelNewNews()">Cancel</button>
+        <button ion-button full (click)="cancelNewNews()" round>Cancel</button>
       </ion-col>
 
       <ion-col col-6>
-        <button ion-button full (click)="addNewNews()">Save</button>
+        <button ion-button full (click)="addNewNews()" round>Save</button>
       </ion-col>
-
     </ion-row>
     </div>
 
-
-
-      
-      
 
 </ion-content>
